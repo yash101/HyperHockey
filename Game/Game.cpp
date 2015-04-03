@@ -1,7 +1,8 @@
 #include "Game.hpp"
+#include "config.hpp"
 Game::Game() :
-    _mainWindow(sf::VideoMode(240, 320), "Hyper Hockey!")
+    _screen(dev::Vector<int>(WINDOW_W, WINDOW_H), "HyperHockey!")
 {
-    _mainWindow.setActive(true);
-    _mainWindow.clear();
+    _screen.setBackgroundColor(sf::Color::Black);
+    mainMenu();
 }
