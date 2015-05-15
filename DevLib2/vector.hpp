@@ -10,11 +10,22 @@ private:
     T _height;
 public:
     //Default constructor. Zeroes _width and _height
-    Vector();
+    Vector() :
+        _width(0),
+        _height(0)
+    {}
+
     //Second constructor. Sets _width and _height from parameters
-    Vector(T width, T height);
+    Vector(T width, T height) :
+        _width(width),
+        _height(height)
+    {}
+
     //Constructs the Vector from another Vector
-    template<typename Type> Vector(Vector<Type>& vector);
+    template<typename Type> Vector(Vector<Type>& vector) :
+        _width(vector._width),
+        _height(vector._height)
+    {}
 
     //Adds this Vector to another to create a new Vector
     template<typename Type> Vector<T> operator+(Vector<Type> vec);
@@ -25,9 +36,9 @@ public:
     //Substracts another Vector to this Vector
     template<typename Type> Vector<T>& operator-=(Vector<Type> vec);
     //Calculates the dot product
-    template<typename Type> Vector<T> operator*(Vector<Type> vec);
+    template<typename Type> T operator*(Vector<Type> vec);
     //Scales this vector by scalar
-    template<typename Type> T operator*(Type scalar);
+    template<typename Type> Vector<T> operator*(Type scalar);
     //Scales the vector
     template<typename Type> Vector<T>& operator*=(Type scalar);
 
@@ -45,20 +56,69 @@ public:
     template<typename Type> Vector<T>& operator=(Vector<Type> vec);
 
     //Miscellaneous private member access functions
-    T& x();
-    T& y();
-    T& width();
-    T& height();
+    T& x()
+    {
+        return _width;
+    }
 
-    T getX();
-    T getY();
-    T getWidth();
-    T getHeight();
+    T& y()
+    {
+        return _height;
+    }
 
-    T& setX(T x);
-    T& setY(T y);
-    T& setWidth(T width);
-    T& setHeight(T height);
+    T& width()
+    {
+        return _width;
+    }
+
+    T& height()
+    {
+        return _height;
+    }
+
+    T getX()
+    {
+        return _width;
+    }
+
+    T getY()
+    {
+        return _height;
+    }
+
+    T getWidth()
+    {
+        return _width;
+    }
+
+    T getHeight()
+    {
+        return _height;
+    }
+
+    T& setX(T x)
+    {
+        _width = x;
+        return x;
+    }
+
+    T& setY(T y)
+    {
+        _height = y;
+        return y;
+    }
+
+    T& setWidth(T width)
+    {
+        _width = width;
+        return width;
+    }
+
+    T& setHeight(T height)
+    {
+        _height = height;
+        return height;
+    }
 };
 
 #endif // VECTOR_HPP

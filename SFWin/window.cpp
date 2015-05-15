@@ -99,4 +99,92 @@ bool Window::update()
     {
         it->second->draw(_window);
     }
+    return true;
+}
+
+Vector<int>& Window::setSize(Vector<int>& size)
+{
+    _window_size = size;
+    return size;
+}
+
+Vector<int> Window::getSize()
+{
+    return _window_size;
+}
+
+Vector<int>& Window::size()
+{
+    return _window_size;
+}
+
+Vector<int>& Window::setPosition(Vector<int>& position)
+{
+    _window.setPosition(sf::Vector2i(position.x(), position.y()));
+    return position;
+}
+
+Vector<int> Window::getPosition()
+{
+    return Vector<int>(_window.getPosition().x, _window.getPosition().y);
+}
+
+sf::Color& Window::setBackgroundColor(sf::Color& color)
+{
+    _background_color = color;
+    return color;
+}
+
+sf::Color Window::getBackgroundColor()
+{
+    return _background_color;
+}
+
+sf::Color& Window::backgroundColor()
+{
+    return _background_color;
+}
+
+std::string& Window::setText(std::string& text)
+{
+    _window_name = text;
+    _window.setTitle(_window_name);
+    return text;
+}
+
+std::string Window::getText()
+{
+    return _window_name;
+}
+
+bool Window::hasFocus()
+{
+    return _window.hasFocus();
+}
+
+bool Window::isActive()
+{
+    return _window.hasFocus();
+}
+
+void Window::setActive(bool yn)
+{
+    _window.setActive(yn);
+}
+
+void Window::close()
+{
+    _window.close();
+}
+
+int Window::setFramerateLimit(int limit)
+{
+    _window.setFramerateLimit(limit);
+    return limit;
+}
+
+bool Window::enableFramerateLimit(bool yn)
+{
+    _window.setVerticalSyncEnabled(yn);
+    return yn;
 }

@@ -20,9 +20,35 @@ public:
     Widget* add(std::string key, Widget* widget);
     void clear();
     void remove(std::string key);
-    template<typename T> Widget* operator[](std::string key);
+    Widget* operator[](std::string key);
+    Widget* get(std::string key);
 
     bool update();
-};
 
+    Vector<int>& setSize(Vector<int>& size);
+    Vector<int> getSize();
+    Vector<int>& size();
+
+    Vector<int>& setPosition(Vector<int>& position);
+    Vector<int> getPosition();
+
+    sf::Color& setBackgroundColor(sf::Color& color);
+    sf::Color getBackgroundColor();
+    sf::Color& backgroundColor();
+
+    std::string& setText(std::string& text);
+    std::string getText();
+
+    bool hasFocus();
+    bool isActive();
+
+    void setActive(bool yn);
+
+    sf::RenderWindow& getRenderWindow();
+
+    int setFramerateLimit(int limit);
+    bool enableFramerateLimit(bool yn);
+
+    void close();
+};
 #endif // WINDOW_HPP
